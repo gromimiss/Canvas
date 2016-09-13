@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="800" style="background: #000">
+			您的浏览器不支持canvas标签
+		</canvas>
+		<script>
+			var cxt=document.getElementById('canvas').getContext('2d');
+			
+			//画星星
+			for(var i=0;i<1000;i++){
+			var randomX=Math.random()*800;
+			var randomY=Math.random()*800;
+			var randomR=Math.random()*3;
+				cxt.fillStyle='#fff';
+				cxt.beginPath();
+				cxt.arc(randomX,randomY,randomR,0,360,false);
+				cxt.closePath();
+				cxt.fill();
+			}
+			//画月亮
+			    //黄色大圆
+				cxt.beginPath();
+				cxt.fillStyle='yellow';
+				cxt.arc(520,170,50,0,360,false);
+				cxt.closePath();
+				cxt.fill();
+				//黑色大圆
+				cxt.beginPath();
+				cxt.fillStyle='#000';
+				cxt.arc(490,190,50,0,360,false);
+				cxt.closePath();
+				cxt.fill();
+				
+			//画月亮的眼睛
+				cxt.beginPath();
+				cxt.lineWidth=1;
+				cxt.strokeStyle='#000';
+				cxt.fillStyle='#fff';
+				cxt.arc(530,140,5,0,360,false)
+				cxt.closePath();
+				cxt.stroke();
+				cxt.fill();
+				cxt.beginPath();
+				cxt.fillStyle='#000';
+				cxt.arc(530,140,3,0,360,false)
+				cxt.closePath();
+				cxt.fill();
+				
+				
+
+				
+		</script>
+	</body>
+</html>

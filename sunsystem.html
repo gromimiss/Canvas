@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="1000" style="background:#000">
+			您的浏览器不支持canvas标签
+		</canvas>
+		<script>
+		    //设置2d绘图环境
+			var cxt=document.getElementById('canvas').getContext('2d');
+			//画轨道
+			function drawTrack(){
+				for(var i=0;i<8;i++){
+					cxt.beginPath();
+					cxt.lineWidth=1;
+					cxt.strokeStyle='#fff';
+					cxt.arc(500,500,(i+1)*50,0,360,false);
+					cxt.closePath();
+					cxt.stroke();
+				}
+			}
+			//画行星
+			//定义时间（1:1天）
+			//!注意：这样写会有一个问题：time在重复调用drawStar方法后越来越多。第二次调用并不会将time清零,不知道怎么处理
+            var time=0;
+			/*
+			 x:x坐标
+			 y:y坐标
+			 peroid:公转周期
+			 sColor：渐变起始色
+			 eColor:渐变结束色
+			 * */
+			function drawStar(x,y,r,period,sColor,eColor{
+				
+				//设置旋转环境
+				cxt.save();
+				//设置旋转参考点
+				cxt.translate(500,500);
+				//设置旋转角度，行星的旋转角度为time*(360/行星公转周期)*Math.PI/180
+				cxt.rotate(time*(360/period)*Math.PI/180);
+				//画出要旋转的图形
+				cxt.beginPath();
+				cxt.arc(x,y,r,0,360,false);
+				//设置渐变色
+				var color=cxt.createRadialGradient(x,y,0,x,y,r);
+				color.addColorStop(0,sColor);
+				color.addColorStop(1,eColor);
+				//将渐变对象赋值给填充色
+				cxt.fillStyle=color;
+				cxt.closePath();
+				cxt.fill();
+				//将旋转后的元素放回画布
+				cxt.restore();
+				time+=1;
+			}
+			function move(){
+
+				//清除之前的内容
+				cxt.clearRect(0,0,1000,1000);
+				//调用画轨道函数
+				drawTrack();
+				//太阳
+				drawStar(0,0,20,0,"#f00","#f90");
+				//水星
+				drawStar(0,-50,10,87.70,"#A69697","#5C3E40");
+				//金星
+				drawStar(0,-100,10,224.701,"#C4BBAC","#1f1315");
+				//地球
+				drawStar(0,-150,10,365.224,"#78b1e8","#050c12");
+				//火星
+				drawStar(0,-200,10,686.98,"#cec9b6","#76422d");
+				//木星
+				drawStar(0,-250,10,4332.589,"#c0a48e","#322222");
+				//土星
+				drawStar(0,-300,10,10759.6,"#f7f9e3","#5c4533");
+				//天王星
+				drawStar(0,-350,10,30799.095,"#a7e1e5","#19243a");
+				//海王星
+				drawStar(0,-400,10,60152,"#0661b2","#1e3b73",0);
+			}
+			
+			//定时器
+			setInterval(move,100);
+		</script>
+	</body>
+</html>

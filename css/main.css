@@ -1,0 +1,168 @@
+/*页面公共属性*/
+*{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+body{
+	background: #ABCDEF;
+}
+/*页面顶部属性*/
+#header{
+	width:900px;
+	height:80px;
+	margin:0 auto;
+	line-height:80px ;
+	text-align: center;
+	font-size:40px;
+}
+/*页面中间部分属性*/
+#content{
+	width:900px;
+	height:570px;
+	
+	margin:0 auto;
+	background:gray;
+	box-shadow:0 0 15px #808069;
+}
+/*中间上部分的工具栏*/
+#content-top{
+	height:150px;
+	text-align:center;
+	padding:10px;
+	}
+#content-top > li{
+	float:left;
+	padding-top:4px;
+	width:175px;
+	height:145px;
+	background:#ccc;
+	border-right:1px solid red;
+}
+#content-top > li:nth-child(5){
+	border:none;
+}
+
+#image{
+	text-align: left;
+	padding:20px;
+}
+#image li{
+	height:30px;
+	width:100px;
+	/*内部正方形*/
+	list-style:square inside;
+	border:0;
+}
+#image li button{
+	background:gray;
+	border:1px solid #000;
+	}
+#image li button:hover{
+	background:gray;
+	border:1px solid #FFF;
+	}
+
+#tools,#shape{
+	padding:24px;
+	}
+#tools li,#shape li{
+	float:left;
+	height:20px;
+	width:40px;
+	border:1px solid #000;
+	margin-bottom:10px;
+	}
+#tools li:hover,#shape li:hover{
+	height:20px;
+	width:40px;
+	border:1px solid #fff;
+	margin-bottom:10px;
+	}
+#tools img,#shape img{
+	height:20px;
+	width:20px;
+	}
+
+#size{
+	padding:10px;
+	}
+/*内联元素设置text-align无效果*/
+#size li{
+	height:20px;
+	width:120px;
+	display:inline-block;
+	text-align: center;
+	border:1px solid #ccc;
+	}
+#size li:hover{
+	height:20px;
+	width:120px;
+	border:1px solid #FFF;
+	}
+
+#color{
+	padding:25px;
+	}
+#color li{
+	float:left;
+	width:20px;
+	height:20px;
+	border:1px solid #000;
+	margin-bottom:10px;
+	margin-right:3px;
+	}
+#color li:hover{
+	width:20px;
+	height:20px;
+	border:1px solid #fff;
+	margin-bottom:10px;
+	margin-right:3px;
+	}
+#color #red{
+	background:red;
+	}
+#color #green{
+	background:green;
+	}
+#color #blue{
+	background:blue;
+	}
+#color #yellow{
+	background:yellow;
+	}
+#color #white{
+	background:white;
+	}
+#color #black{
+	background:black;
+	}
+#color #pink{
+	background:pink;
+	}
+#color #purple{
+	background:purple;
+	}
+#color #cyan{
+	background:cyan;
+	}
+#color #orange{
+	background:orange;
+	}
+
+#canvas{
+	background:white;
+}
+#canvas:hover{
+	cursor:crosshair;
+}
+/*页面底部属性设置*/
+#footer{
+	padding-top:10px;
+	width:900px;
+	height:30px;
+	margin:0 auto;
+	text-align:center;
+	font-size:13px;
+	color:#292421;
+	}
